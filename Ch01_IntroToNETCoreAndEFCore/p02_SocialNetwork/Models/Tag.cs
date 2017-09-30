@@ -1,16 +1,18 @@
-﻿namespace Lab05_Shop.Models
+﻿namespace p02_SocialNetwork.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Validations;
 
-    public class Salesman
+    public class Tag
     {
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [Tag]
+        [MaxLength(20)]
         public string Name { get; set; }
 
-        public ICollection<Customer> Customers { get; set; } = new List<Customer>();
+        public ICollection<AlbumTag> Albums { get; set; } = new List<AlbumTag>();
     }
 }
