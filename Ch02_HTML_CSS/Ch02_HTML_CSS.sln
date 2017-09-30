@@ -1,0 +1,130 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab01_WelcomeToHTML", "Lab01_WelcomeToHTML", "{3355BC33-F43B-4C92-9980-9E5F81A0D16D}"
+	ProjectSection(SolutionItems) = preProject
+		Lab01_WelcomeToHTML\welcome.html = Lab01_WelcomeToHTML\welcome.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab02_Headings", "Lab02_Headings", "{3B1E2B7E-DFDB-48A4-8C45-486BFE4661FA}"
+	ProjectSection(SolutionItems) = preProject
+		Lab02_Headings\headings.html = Lab02_Headings\headings.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab03_Paragraphs", "Lab03_Paragraphs", "{F3EEDB09-964B-49DC-9537-490863538ECC}"
+	ProjectSection(SolutionItems) = preProject
+		Lab03_Paragraphs\paragraphs.html = Lab03_Paragraphs\paragraphs.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93B38834-56E1-4D42-A5F2-2AA9CEBAB942}"
+	ProjectSection(SolutionItems) = preProject
+		02.HTML-and-CSS-Exercises.docx = 02.HTML-and-CSS-Exercises.docx
+		02.HTML-and-CSS-Lab.docx = 02.HTML-and-CSS-Lab.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab04_MyTodoList", "Lab04_MyTodoList", "{C7CF0045-5588-4608-A425-E6CB6B1BEFF1}"
+	ProjectSection(SolutionItems) = preProject
+		Lab04_MyTodoList\todo.html = Lab04_MyTodoList\todo.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab05_HelloHTML", "Lab05_HelloHTML", "{458145E3-7199-4115-97D1-E4AC2C45D52E}"
+	ProjectSection(SolutionItems) = preProject
+		Lab05_HelloHTML\hello.html = Lab05_HelloHTML\hello.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab06_Website", "Lab06_Website", "{9857FD1D-90BF-4955-A480-DF8E0B6CD107}"
+	ProjectSection(SolutionItems) = preProject
+		Lab06_Website\hello.html = Lab06_Website\hello.html
+		Lab06_Website\home.html = Lab06_Website\home.html
+		Lab06_Website\todo.html = Lab06_Website\todo.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab07_Fruits", "Lab07_Fruits", "{5BD79899-44DA-4932-BE67-8EB5E44D30AD}"
+	ProjectSection(SolutionItems) = preProject
+		Lab07_Fruits\fruits.html = Lab07_Fruits\fruits.html
+		Lab07_Fruits\style.css = Lab07_Fruits\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{821F1961-5B71-4A1E-A402-A15A9C17ABF9}"
+	ProjectSection(SolutionItems) = preProject
+		Lab07_Fruits\images\apple.png = Lab07_Fruits\images\apple.png
+		Lab07_Fruits\images\banana.png = Lab07_Fruits\images\banana.png
+		Lab07_Fruits\images\kiwi.png = Lab07_Fruits\images\kiwi.png
+		Lab07_Fruits\images\orange.png = Lab07_Fruits\images\orange.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab08_Forms", "Lab08_Forms", "{E27ECB29-9C87-46EF-BD0C-2C2F2A153853}"
+	ProjectSection(SolutionItems) = preProject
+		Lab08_Forms\contact.html = Lab08_Forms\contact.html
+		Lab08_Forms\receipt.html = Lab08_Forms\receipt.html
+		Lab08_Forms\style.css = Lab08_Forms\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab09_Colors", "Lab09_Colors", "{88DFDBF8-B99F-4CDF-914A-2D00518149AA}"
+	ProjectSection(SolutionItems) = preProject
+		Lab09_Colors\colors.html = Lab09_Colors\colors.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab10_Borders", "Lab10_Borders", "{DA90A9BA-4FE1-44D5-A6C4-530A5CBCDA0D}"
+	ProjectSection(SolutionItems) = preProject
+		Lab10_Borders\borders.html = Lab10_Borders\borders.html
+		Lab10_Borders\style.css = Lab10_Borders\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab11_Rectangles", "Lab11_Rectangles", "{46228AEC-C26A-4EA4-AB57-F411212E46D8}"
+	ProjectSection(SolutionItems) = preProject
+		Lab11_Rectangles\rectangles.html = Lab11_Rectangles\rectangles.html
+		Lab11_Rectangles\style.css = Lab11_Rectangles\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab12_Languages", "Lab12_Languages", "{061E88AB-B63E-47A0-ADA5-DB50850E7BAD}"
+	ProjectSection(SolutionItems) = preProject
+		Lab12_Languages\langs.css = Lab12_Languages\langs.css
+		Lab12_Languages\languages.html = Lab12_Languages\languages.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab13_ContactUsForm", "Lab13_ContactUsForm", "{0E10E6AA-D56B-4DF6-A042-0E29EB25CA25}"
+	ProjectSection(SolutionItems) = preProject
+		Lab13_ContactUsForm\contact-us-form.html = Lab13_ContactUsForm\contact-us-form.html
+		Lab13_ContactUsForm\style.css = Lab13_ContactUsForm\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "p01_BeerStore", "p01_BeerStore", "{2DE82D25-F923-4CE7-BB5A-D82351BF6649}"
+	ProjectSection(SolutionItems) = preProject
+		p01_BeerStore\all-beers.html = p01_BeerStore\all-beers.html
+		p01_BeerStore\index.html = p01_BeerStore\index.html
+		p01_BeerStore\login.html = p01_BeerStore\login.html
+		p01_BeerStore\order.html = p01_BeerStore\order.html
+		p01_BeerStore\register.html = p01_BeerStore\register.html
+		p01_BeerStore\template.html = p01_BeerStore\template.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{3AF48E70-DFAC-4941-814D-947E0A43E151}"
+	ProjectSection(SolutionItems) = preProject
+		p01_BeerStore\images\beer_1.png = p01_BeerStore\images\beer_1.png
+		p01_BeerStore\images\beer_2.png = p01_BeerStore\images\beer_2.png
+		p01_BeerStore\images\beer_3.png = p01_BeerStore\images\beer_3.png
+		p01_BeerStore\images\beer_4.png = p01_BeerStore\images\beer_4.png
+		p01_BeerStore\images\logo.png = p01_BeerStore\images\logo.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "style", "style", "{A183ECBD-B68A-4214-9F90-0B7F92E93C38}"
+	ProjectSection(SolutionItems) = preProject
+		p01_BeerStore\style\style.css = p01_BeerStore\style\style.css
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{821F1961-5B71-4A1E-A402-A15A9C17ABF9} = {5BD79899-44DA-4932-BE67-8EB5E44D30AD}
+		{3AF48E70-DFAC-4941-814D-947E0A43E151} = {2DE82D25-F923-4CE7-BB5A-D82351BF6649}
+		{A183ECBD-B68A-4214-9F90-0B7F92E93C38} = {2DE82D25-F923-4CE7-BB5A-D82351BF6649}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28A0D848-14E8-4248-9143-83B64D70EF2E}
+	EndGlobalSection
+EndGlobal
