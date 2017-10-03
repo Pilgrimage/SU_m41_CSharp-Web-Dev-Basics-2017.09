@@ -1,0 +1,2308 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0">
+
+        <title>Курс C# Web Development Basics - септември 2017 - Софтуерен университет</title>
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="/content/bootstrap/styles?v=4jFDhL8tnPLVZ2-NA0JyLpbIBjoBrHraCB3JHUxz1DM1" rel="stylesheet"/>
+
+
+    
+
+<link href="/content/kendo/css?v=hz54jZh5scitRBKPYf3s1aSUyQFaaELpC8SNjhIUtIQ1" rel="stylesheet"/>
+<link href="/content/styles?v=MLbxJ914s2ElYWDauKK25gdVnCu3LAHHOr3mE2CDvP01" rel="stylesheet"/>
+<link href="/content/override?v=CV8pRfSIxscWBkNWFOWr2Qrd6GNh7Qo2R_ZG8dpBEQ01" rel="stylesheet"/>
+<link href="/content/user-styles?v=vo3uTH3jezQVDb8mvcH-TzBHHMS79-VwrZbFuD3p-pU1" rel="stylesheet"/>
+
+    
+    <link href="/content/training-details?v=EIEAJ3jUbboMGZKzRsMH3NEefyvDEhXpDI_6-nBGakE1" rel="stylesheet"/>
+
+
+
+    <script src="/bundles/modernizr?v=RJWLYuA0p9DAogaZGuFJ_kS1pkG6Kg_B8EJxhHE14M41"></script>
+<script src="/bundles/jquery?v=7Ke9-P8O_KBKLjsZzmjXkfzQLMftkReGRVMMO7tjVKo1"></script>
+
+
+    <script src="/scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script src="/scripts/webshims/polyfiller.js"></script>
+    <script>webshim.polyfill('forms');</script>
+
+    <link rel="canonical"
+          href="https://softuni.bg/trainings/1736/c-sharp-web-development-basics-september-2017" />
+
+        <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="SoftUni" />
+
+        <meta name="title" content="Софтуерен университет" />
+        <meta name="description" content="Софтуерен университет - курсове по програмиране" />
+        <meta name="Keywords" content="софтуер,университет,програмиране,курсове" />
+
+    
+    
+    
+    
+    
+
+    <meta property="fb:app_id" content="1442925725936458">
+    <meta property="og:url" content="https://softuni.bg/trainings/1736/c-sharp-web-development-basics-september-2017" />
+    <meta property="og:site_name" content="SoftUni">
+    <meta property="og:locale" content="bg_BG" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+
+    <meta property="og:title" content="C# Web Development Basics - септември 2017" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="В курса по основи на уеб програмирането, ще ви запознаем с основни принципи на уеб разработката като HTTP протокол, сесии и начините на запазване на състоянието, кеширане на данните, различните протоколи за пренос на данни, сигурност.
+Ще напишем собствен MVC framework н..." />
+    <meta property="og:image" content="https://softuni.bg/Files/InternalCourses/csharp_web_basics.png" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+
+        <script>
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+                t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+            }(window, document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+
+            // Insert Your Custom Audience Pixel ID below.
+            fbq('init', '911920462219791');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display: none"
+                 src="https://www.facebook.com/tr?id=911920462219791&ev=PageView&noscript=1" />
+        </noscript>
+        <script>
+            // Google analytics
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-11309924-7', 'softuni.bg');
+            ga('send', 'pageview');
+        </script>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(
+                    function() {
+                         try {
+                             w.yaCounter43292469 = new Ya.Metrika({
+                                 id: 43292469,
+                                 clickmap: true,
+                                 trackLinks: true,
+                                 accurateTrackBounce: true,
+                                 webvisor: true
+                             });
+                         } catch (e) {                          
+                         }
+                    });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function() {
+                        n.parentNode.insertBefore(s, n);
+                    };
+
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/watch.js";
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <!-- /Yandex.Metrika counter -->
+
+    <script type="text/javascript">
+        $(function () {
+            $.cookieBar({
+                message: '<p class="cookie-bar-text">softuni.bg използва &quot;бисквитки&quot;, за да ти предостави възможно най-доброто потребителско изживяване.</p>',
+                acceptButton: true,
+                acceptText: 'Съгласявам се',
+                policyButton: true,
+                policyText: 'Повече информация',
+                policyURL: '/home/about/cookiepolicy',
+                expireDays: 365,
+                bottom: true,
+                fixed: true,
+                zindex: '999999',
+                domain: 'https://softuni.bg/',
+                referrer: 'https://softuni.bg/'
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="lead-wrapper ">
+        
+
+
+
+
+<div class="header-wrapper bottom-margin">
+    <header id="page-header" class="container container-holder">
+        <div class="brand-holder pull-left">
+            <div class="cell">
+                <div class="hover-dropdown">
+                    <div class="logo hover-dropdown-btn">
+                        <i class="fa fa-fw fa-2x fa-caret-right"></i>
+                        <strong>Software University</strong>
+                        <a href="/" title="Software University">
+                            <img class="hidden-xs" src="/content/images/software-university-logo.png" alt="Logo">
+                            <img class="visible-xs" src="/content/images/softuni-mobile-logo.png" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="hover-dropdown-content">
+                        <a href="https://softuni.org" title="SoftUni">
+                            <img src="/Content/images/softuni-logo.png" alt="SoftUni logo" />
+                        </a>
+                        <a href="https://digital.softuni.bg" title="SoftUni Digital">
+                            <img src="/Content/images/digital-logo-white.png" alt="SoftUni Digital logo" />
+                        </a>
+                        <a href="https://creative.softuni.bg" title="SoftUni Creative">
+                            <img src="/Content/images/creative-logo.png" alt="SoftUni Creative logo" />
+                        </a>
+                        <a href="https://kids.softuni.bg" title="SoftUni Kids">
+                            <img src="/Content/images/kids-logo.png" alt="SoftUni Kids logo" />
+                        </a>
+                        <a href="http://softuni.foundation/" title="SoftUni Foundation">
+                            <img src="/Content/images/foundation-logo.png" alt="SoftUni Foundation logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="table-holder apply-btn-wrap pull-left">
+                <div class="cell">
+                    <a href="/apply" class="primary-btn base-btn">
+                        Кандидатствай
+                    </a>
+                </div>
+            </div>
+
+
+        <nav id="header-nav">
+            <div class="toggle-nav toggle-holder">
+                <ul class="nav-list horizontal-list">
+                    <li class="nav-item dropdown-item">
+                        <a href="javascript:;" class="nav-link header-dropdown-link" data-toggle="dropdown">
+                            <span class="cell">За нас</span>
+                        </a>
+
+                        <div class="custom-dropdown">
+                            <div class="container container-holder">
+                                <ul class="dropdown-list row">
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/about" class="nav-link">За Software University</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/curriculum" class="nav-link">Учебен план</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/plans" class="nav-link">Такси за обучение</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/diplomas-and-certificates" class="nav-link">Сертификати</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/trainers" class="nav-link">Преподаватели</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/university-partners" class="nav-link">Университети партньори</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/faq" class="nav-link">Често задавани въпроси</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown-item">
+                        <a href="javascript:;" class="nav-link header-dropdown-link" data-toggle="dropdown">
+                            <span class="cell">Обучения</span>
+                        </a>
+                        
+
+<div class="custom-dropdown training-dropdown">
+    <div class="container container-holder">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="category-nav">
+                    <h2 class="category-title main">
+                        <a href="/trainings/courses">Софтуерно Инженерство</a>
+                    </h2>
+                    <div class="category-title sub">
+                        Активни модули
+                    </div>
+
+                    
+<div class="category-nav levels-nav header-level-group-container first-level-group-container">
+    <h2 class="category-title">
+        <a href="/trainings/courses#entry-module">Entry Module</a>
+                    <span class="level-icons-wrapper"><span class="fa fa-sign-in"></span></span>
+
+    </h2>
+
+    <ul class="category-list">
+        
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/2/Programming-Basics">Programming Basics</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1722/programming-basics-with-csharp-september-2017/internal" 
+        class="nav-link">Programming Basics with C# - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1723/programming-basics-with-java-september-2017/internal" 
+        class="nav-link">Programming Basics with Java - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1726/programming-basics-with-c-plus-plus-september-2017/internal" 
+        class="nav-link">Programming Basics with C++ - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav header-level-group-container ">
+    <h2 class="category-title">
+        <a href="/trainings/courses#tech-module">Tech Module</a>
+                    <span class="level-icons-wrapper"><span class="fa fa-code"></span></span>
+
+    </h2>
+
+    <ul class="category-list">
+        
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/19/Technology-Fundamentals">Technology Fundamentals</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1712/programming-fundamentals-september-2017" 
+        class="nav-link">Programming Fundamentals - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav header-level-group-container ">
+    <h2 class="category-title">
+        <a href="/trainings/courses#professional-modules">Professional Modules</a>
+                    <span class="level-icons-wrapper"><span class="fa fa-briefcase"></span></span>
+
+    </h2>
+
+    <ul class="category-list">
+        
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/22/CSharp-DB-Fundamentals">C# DB Fundamentals</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1747/databases-basics-mssql-server-september-2017/internal" 
+        class="nav-link">Databases Basics - MS SQL Server - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/23/CSharp-Web">C# Web</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1736/c-sharp-web-development-basics-september-2017" 
+        class="nav-link">C# Web Development Basics - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/21/Java-Fundamentals">Java Fundamentals</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1728/java-advanced_september-2017" 
+        class="nav-link">Java Advanced - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/24/Java-DB-Fundamentals">Java DB Fundamentals</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1748/database-basics-my-sql-september-2017/internal" 
+        class="nav-link">Database Basics - MySQL - септември 2017	</a>
+</li>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/27/JS-Web">JS Web</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1732/expressjs-fundamentals-september-2017" 
+        class="nav-link">ExpressJS Fundamentals - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/29/PHP-Web">PHP Web</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1746/php-web-developmentbasics-september-2017/internal" 
+        class="nav-link">PHP Web Development Basics - септември 2017</a>
+</li>
+
+    </ul>
+</div>
+
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/31/Front-End-Development">Front-End Development</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1745/web-fundamentals-html-css-september-2017/internal" 
+        class="nav-link">Web Fundamentals - HTML5 - септември  2017</a>
+</li>
+
+    </ul>
+</div>
+
+    </ul>
+</div>
+
+
+                    <div class="category-nav">
+                        <a class="primary-btn base-btn" href="/trainings/courses">Виж всички</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="category-nav">
+                    <h2 class="category-title main">
+                        <a href="/trainings/opencourses">Отворени курсове</a>
+                    </h2>
+                    
+                        <div class="category-nav">
+                            <div class="category-title sub">
+                                Модули с отворени курсове
+                            </div>
+
+                            <ul class="category-list">
+                                
+<div class="category-nav levels-nav">
+    <h2 class="category-title header-level">
+        <a class="header-level-link" href="/modules/34/Блокчейн-технологии-и-разработка">Блокчейн технологии и разработка</a>
+    </h2>
+
+    <ul class="category-list sub-menu">
+        
+
+
+<li>
+    <a href="/trainings/1763/introduction-to-blockchain-technology" 
+        class="nav-link">Въведение в Blockchain технологията - септември 2017 </a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1764/fundamentals-of-programming-with-csharp" 
+        class="nav-link">Fundamentals of Programming (with C#) - ноември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1765/smart-contract-development-with-solidity" 
+        class="nav-link">Smart Contract Development with Solidity - януари 2018 </a>
+</li>
+
+    </ul>
+</div>
+
+                            </ul>
+                        </div>
+                    
+                    <div class="category-title sub">
+                        Предстоящи курсове
+                    </div>
+
+                    <ul class="category-list sub-menu">
+                        
+
+
+<li>
+    <a href="/trainings/1769/ethical-hacking-for-beginners-october-2017" 
+        class="nav-link">Етично хакерство за начинаещи - октомври 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1770/programming-basics-with-csharp-october-2017" 
+        class="nav-link">Programming Basics with C# - октомври 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1772/programming-basics-with-java-october-2017" 
+        class="nav-link">Programming Basics with Java - октомври 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1773/programming-basics-with-python-october-2017" 
+        class="nav-link">Programming Basics with Python - октомври 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1775/web-programming-with-ruby-on-rails-october-2017" 
+        class="nav-link">Уеб програмиране с Ruby on Rails – октомври 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1779/android-fundamentals-with-kotlin-october-2017 " 
+        class="nav-link">Android Development - октомври 2017 </a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1788/devops-basics-october2017" 
+        class="nav-link">DevOps Basics - октомври 2017 </a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1795/javascript-for-front-end-october-2017" 
+        class="nav-link">JavaScript for Front-End - октомври 2017 </a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1764/fundamentals-of-programming-with-csharp" 
+        class="nav-link">Fundamentals of Programming (with C#) - ноември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1765/smart-contract-development-with-solidity" 
+        class="nav-link">Smart Contract Development with Solidity - януари 2018 </a>
+</li>
+
+                    </ul>
+                </div>
+
+                <div class="category-nav">
+                    <div class="category-title sub">
+                        Активни курсове
+                    </div>
+                    
+                    <ul class="category-list sub-menu">
+                        
+
+
+<li>
+    <a href="/trainings/1766/fundamentals-of-scrum-september-2017" 
+        class="nav-link">Основи на Scrum - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1763/introduction-to-blockchain-technology" 
+        class="nav-link">Въведение в Blockchain технологията - септември 2017 </a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1748/database-basics-my-sql-september-2017" 
+        class="nav-link">Database Basics - MySQL - септември 2017	</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1745/web-fundamentals-html-css-september-2017" 
+        class="nav-link">Web Fundamentals - HTML5 - септември  2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1760/windows-system-administration-september-2017" 
+        class="nav-link">Windows System Administration - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1746/php-web-developmentbasics-september-2017" 
+        class="nav-link">PHP Web Development Basics - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1747/databases-basics-mssql-server-september-2017" 
+        class="nav-link">Databases Basics - MS SQL Server - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1753/qa-fundamentals-september-2017" 
+        class="nav-link">QA Fundamentals - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1750/robotics-with-arduino" 
+        class="nav-link">Роботика с Arduino - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1749/math-concepts-for-developers-september-2017" 
+        class="nav-link">Math Concepts for Developers - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1724/programming-basics-for-students-september-2017" 
+        class="nav-link">Programming Basics for Students - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1722/programming-basics-with-csharp-september-2017" 
+        class="nav-link">Programming Basics with C# - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1723/programming-basics-with-java-september-2017" 
+        class="nav-link">Programming Basics with Java - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1726/programming-basics-with-c-plus-plus-september-2017" 
+        class="nav-link">Programming Basics with C++ - септември 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1704/programming-basics-for-teachers-july-2017" 
+        class="nav-link">Увод в програмирането за учители - юли 2017</a>
+</li>
+
+
+
+<li>
+    <a href="/trainings/1692/microsoft-software-development-fundamentals-july-2017" 
+        class="nav-link">Microsoft Software Development Fundamentals - юли 2017</a>
+</li>
+
+                    </ul>
+
+                    <div class="category-nav">
+                        <a class="primary-btn base-btn" href="/trainings/opencourses">Виж всички</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="category-nav">
+                    <h2 class="category-title main">
+                        <a href="/trainings/seminars">Семинари</a>
+                    </h2>
+
+                    <div class="category-title sub">
+                        Предстоящи семинари
+                    </div>
+
+                    <ul class="category-list sub-menu">
+                        
+                    </ul>
+
+                    <div class="category-nav">
+                        <a class="primary-btn base-btn" href="/trainings/seminars">Виж всички</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/careers" class="nav-link"><span class="cell">Работа</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/partners" class="nav-link">
+                            <span class="cell">Партньори</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/forum" class="nav-link"><span class="cell">Форум</span></a>
+                    </li>
+                    <li class="nav-item dropdown-item">
+                        <a href="javascript:;" class="nav-link header-dropdown-link" data-toggle="dropdown">
+                            <span class="cell">Блог</span>
+                        </a>
+                        <div class="custom-dropdown">
+                            <div class="container container-holder">
+                                <ul class="dropdown-list row">
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/blog" class="nav-link">Блог статии</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/professions/all" class="nav-link">Професия програмист</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/professions/java" class="nav-link">Професия Java Developer</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/professions/php" class="nav-link">Професия PHP Developer</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/university/developersguide" class="nav-link">Наръчник за програмисти</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/professions/csharp" class="nav-link">Професия C# Developer</a>
+                                    </li>
+                                    <li class="col-md-3 col-sm-4">
+                                        <a href="/professions/javascript" class="nav-link">Професия JS Developer</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contacts" class="nav-link"><span class="cell">Контакти</span></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-buttons">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown-item nav-toggle-item btn-item">
+                        <a href="javascript:;" class="icon-btn nav-toggle-btn hidden-lg hidden-md" data-toggle="dropdown">
+                            <span class="cell">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                        <li class="nav-item btn-item">
+                            <span class="cell login-btn-wrap">
+                                <a href="/login" class="primary-btn base-btn">Вход</a>
+                            </span>
+                        </li>
+
+
+                    <li class="nav-item dropdown-item btn-item" id="header-search-item">
+                        
+
+<a href="javascript:;" class="icon-btn search-btn header-dropdown-link" data-toggle="dropdown">
+    <span class="cell">
+        <i class="fa fa-search"></i>
+    </span>
+</a>
+
+<div class="custom-dropdown toggle-holder">
+    <div class="container container-holder">
+<form action="/search/results" id="header-search-form" method="get">            <div class="search-wrap">
+                <i class="fa fa-search header-search-form-icon"></i>
+                <input class="search-filed" type="text" placeholder="Търси в сайта" name="Query" id="Query" />
+            </div>
+            <div class="filters-holder">
+                <div class="filter-wrap checkbox-wrap">
+                    <input id="Courses" type="checkbox" name="Courses" value="true"
+                           checked="checked" />
+                    <label class="checkbox-label" for="Courses">Курсове</label>
+                </div>
+                <div class="filter-wrap checkbox-wrap">
+                    <input id="FastTracks" type="checkbox" name="FastTracks" value="true"
+                           checked="checked" />
+                    <label class="checkbox-label" for="FastTracks">Отворени курсове</label>
+                </div>
+                <div class="filter-wrap checkbox-wrap">
+                    <input id="Seminars" type="checkbox" name="Seminars" value="true"
+                           checked="checked" />
+                    <label class="checkbox-label" for="Seminars">Семинари</label>
+                </div>
+                <div class="filter-wrap checkbox-wrap">
+                    <input id="Forum" type="checkbox" name="Forum" value="true"
+                           checked="checked" />
+                    <label class="checkbox-label" for="Forum">Форум</label>
+                </div>
+                <div class="filter-wrap checkbox-wrap">
+                    <input id="Users" type="checkbox" name="Users" value="true"
+                           checked="checked" />
+                    <label class="checkbox-label" for="Users">Потребители</label>
+                </div>
+                <div class="filter-wrap checkbox-wrap">
+                    <input id="Resources" type="checkbox" name="Resources" value="true"
+                           checked="checked" />
+                    <label class="checkbox-label" for="Resources">Ресурси</label>
+                </div>
+            </div>
+</form>    </div>
+</div>
+
+<script>
+    $('.header-search-form-icon').on('click', function () {
+        $('#header-search-form').submit();
+    })
+</script>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</div>
+
+
+        
+
+
+
+
+
+
+
+<div class="heading-wrapper table-holder">
+    <div class="cell">
+        <div class="container container-holder main-container-holder">
+            <div class="title-wrap">
+                    <h1 class="page-title">Курс C# Web Development Basics - септември 2017</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <div class="content">
+        
+
+
+
+
+
+
+
+
+
+<div class="nav-bar">
+    <div class="container container-holder">
+        <ul id="horizontal">
+            <li class="active">
+                <a class="nav-bar-item" href="/trainings/courses">Софтуерно инженерство</a>
+            </li>
+            <li class="">
+                <a href="/trainings/opencourses" class="nav-bar-item">
+                    Отворени курсове
+                </a>
+            </li>
+            <li class="">
+                <a class="nav-bar-item" href="/trainings/seminars">Семинари</a>
+            </li>
+            <li class="">
+                <a class="nav-bar-item" href="/trainings/resources">Ресурси</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<header class="lead-header image-background">
+    <h1 class="text-center">C# Web Development Basics - септември 2017</h1>
+        <div class="text-center bottom-buffer-lg info">
+                <span class="item-desc course-date bottom-buffer" title="Началo">
+                    <i class="fa fa-play-circle icon-item"></i> 19 септември 2017
+                </span>
+
+
+
+                <span title="Кредити">
+                    <i class="fa fa-fw fa-graduation-cap"></i> 12 кредита
+                </span>
+        </div>
+
+    <div class="text-center">
+        
+
+
+
+
+            </div>
+
+        <img src="https://softuni.bg/Files/InternalCourses/csharp_web_basics.png" class="training-icon" alt="C# Web Development Basics - септември 2017 icon" />
+</header>
+<div class="container main-container container-holder">
+
+
+
+
+<section class="grey-container about-section bottom-buffer-lg">
+    <div class="text-center bottom-buffer-lg">
+        <h3 class="section-title">За курса</h3>
+    </div>
+    
+    <div class="html-raw-wrapper">
+        <div id="course-description" class="description collapsed">
+            <p>В курса по основи на уеб програмирането, ще ви запознаем с основни <strong>принципи на уеб разработката</strong> като <strong>HTTP </strong>протокол, <strong>сесии </strong>и начините на запазване на <strong>състоянието</strong>, <strong>кеширане </strong>на данните, различните <strong>протоколи </strong>за пренос на данни, сигурност.
+</p><p>Ще напишем собствен <strong>MVC framework</strong> на базата на <strong>C# </strong>и <strong>MS SQL Server</strong>,
+ с отделяне на модели, изгледи и контролери, с front-controller и
+    router, с поддръжка на всички базови функционалности, необходими за едно
+    съвременно уеб приложение: визуализация на данни, таблици, CRUD
+    операции върху данните, форми, страниране, валидация, нотификации,
+    потребители, сесии, login/logout и други. На практика ще се научите да
+    създавате собствени уеб приложения с C# и SQL Server и ще разберете как
+    работят уеб приложенията като структура и как работи MVC
+    (model-view-controller) технологията при съвременните уеб приложения. В този курс се полагат основите на важни принципи заложени в следващите курсове и използвани в технологиите, които ще бъдат изучавани.
+</p><p>Курсът е част от цялостната програма <a href="https://softuni.bg/professions/csharp" style="text-align:justify;" target="_blank"><strong>C# курсове и уроци за обучение по професия "C# програмист"</strong></a> в Софтуерния университет.</p>
+        </div>
+    </div>
+
+    <div class="row no-margin-offset text-center">
+        
+
+
+    </div>
+</section>
+
+
+
+
+<section class="grey-container skills-section bottom-buffer-lg">
+    <div class="text-center bottom-buffer-lg">
+        <h3  class="section-title">Умения, които ще придобиеш</h3>
+    </div>
+    <div class="row">
+        <ul class="skills-list col-md-6 col-sm-12">
+                <li>
+                    <i class="fa fa-fw fa-graduation-cap icon-item"></i>
+                    <strong class="skill-name">Работа с уеб сървъри</strong>
+                </li>
+                <li>
+                    <i class="fa fa-fw fa-graduation-cap icon-item"></i>
+                    <strong class="skill-name">Познания по създаване и стилизиране на съдържание</strong>
+                </li>
+                <li>
+                    <i class="fa fa-fw fa-graduation-cap icon-item"></i>
+                    <strong class="skill-name">Управление на състоянието</strong>
+                </li>
+                    </ul>
+                    <ul class="skills-list col-md-6 col-sm-12">
+                <li>
+                    <i class="fa fa-fw fa-graduation-cap icon-item"></i>
+                    <strong class="skill-name">Създаване на архитектура на уеб приложение</strong>
+                </li>
+                <li>
+                    <i class="fa fa-fw fa-graduation-cap icon-item"></i>
+                    <strong class="skill-name">Създаване на уеб приложения от нулата</strong>
+                </li>
+                <li>
+                    <i class="fa fa-fw fa-graduation-cap icon-item"></i>
+                    <strong class="skill-name">Овладяване на архитектурния шаблон MVC</strong>
+                </li>
+        </ul>
+    </div>
+</section>
+
+    <section class="bottom-buffer-lg ">
+        <div class="grey-container lectures-section text-center">
+    <div class="text-center bottom-buffer-lg section-title">
+        <h3>За курса</h3>
+    </div>
+    <div class="row lecture-wrap no-margin-offset">
+        <ul class="lectures-list col-md-12 col-sm-12 col-xs-12 text-left" id="lectures-list">
+<li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6460" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6460" data-target="#lecture-6460" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">1</span>
+        <span class="lecture-name">Course Introduction</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6461" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6461" data-target="#lecture-6461" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">2</span>
+        <span class="lecture-name">Introduction to .NET Core and EF Core</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6460" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6460" data-target="#lecture-6460" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">1</span>
+        <span class="lecture-name">Course Introduction</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6460">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Course Introduction</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>About the course, Trainers, Exams, etc.</li></ul><p>Дата: 19-ти септември, 13:30 - 14:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/17974/video-stream-record-19-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (стрийм запис) - 19 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/17934/presentation-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-powerpoint-o"></i>Презентация</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/video/17972/video-screen-19-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 19 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/17935/course-schedule-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>График на курса</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6461" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6461" data-target="#lecture-6461" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">2</span>
+        <span class="lecture-name">Introduction to .NET Core and EF Core</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6461">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Introduction to .NET Core and EF Core</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Differences between .NET Core and .NET Framework, Simple .NET Core Applications, EF Core</li></ul><p>Дата: 19-ти септември, 14:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/17975/video-stream-record-19-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (стрийм запис) - 19 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/17936/presentation-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-powerpoint-o"></i>Презентация</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/video/17973/video-screen-19-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 19 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/17939/lab-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Лаб - Условия</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6462" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6462" data-target="#lecture-6462" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">3</span>
+        <span class="lecture-name">Introduction to .NET Core - Exercise - Complex Databases</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6463" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6463" data-target="#lecture-6463" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">4</span>
+        <span class="lecture-name">HTML &amp; CSS</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6462" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6462" data-target="#lecture-6462" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">3</span>
+        <span class="lecture-name">Introduction to .NET Core - Exercise - Complex Databases</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6462">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Introduction to .NET Core - Exercise - Complex Databases</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Complex Databases and Executing Queries
+</li></ul><p>Дата: 21-ви септември, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/18020/video-screen-21-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 21 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18004/exercises-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Упражнения - Условия</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6463" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6463" data-target="#lecture-6463" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">4</span>
+        <span class="lecture-name">HTML &amp; CSS</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6463">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">HTML & CSS</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>HTML Common Tags, Attributes and Forms. CSS Selector, Rules and General Conventions</li></ul><p>Дата: 22-ри септември, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/18033/video-screen-22-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 22 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18028/presentation-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-powerpoint-o"></i>Презентация</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18029/lab-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Лаб - Условия</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6464" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6464" data-target="#lecture-6464" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">5</span>
+        <span class="lecture-name">HTML &amp; CSS - Exercise - Basic HTML Pages</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6465" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6465" data-target="#lecture-6465" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">6</span>
+        <span class="lecture-name">Web Server - HTTP Protocol</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6464" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6464" data-target="#lecture-6464" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">5</span>
+        <span class="lecture-name">HTML &amp; CSS - Exercise - Basic HTML Pages</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6464">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">HTML & CSS - Exercise - Basic HTML Pages</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Basic HTML Pages, Creating Complex HTML Pages, Using CSS</li></ul><p>Дата: 25-ти септември, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/18113/video-screen-25-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 25 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18087/exercise-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Упражнение - Условия</a>
+</li>
+
+
+      
+<li>
+        <a href="/downloads/svn/csharp-web/trunk/Sept-2017/Web-Dev-Basics-Sept-2017/02.%20HTML-and-CSS/02.%20HTML-and-CSS-Exercises-Resources.zip" target="_blank"><i class="fa fa fa-archive"></i>Упражнение - Ресурси</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6465" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6465" data-target="#lecture-6465" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">6</span>
+        <span class="lecture-name">Web Server - HTTP Protocol</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6465">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - HTTP Protocol</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Parsing HTTP Request, Processing Form Submissions, Returning HTTP Response, Viewing Results in Browser</li></ul><p>Дата: 26-ти септември, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/18141/video-stream-record-26-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (стрийм запис) - 26 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/video/18142/video-stream-record-26-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (стрийм запис) - 26 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/video/18132/video-screen-26-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 26 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18105/presentation-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-powerpoint-o"></i>Презентация</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18106/lab-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Лаб - Условия</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6466" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6466" data-target="#lecture-6466" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">7</span>
+        <span class="lecture-name">Web Server - Asynchronous Processing</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6467" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6467" data-target="#lecture-6467" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">8</span>
+        <span class="lecture-name">Web Server - Asynchronous Processing - Exercise - Concurrent Users</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6466" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6466" data-target="#lecture-6466" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">7</span>
+        <span class="lecture-name">Web Server - Asynchronous Processing</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6466">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - Asynchronous Processing</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Web Server - Parsing Request Methods and Query Strings. Working with Multiple Users Simultaneously</li></ul><p>Дата: 28-ми семпември, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/18190/video-stream-record-28-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (стрийм запис) - 28 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18181/presentation-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-powerpoint-o"></i>Презентация</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18182/exercise-lab-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Упражнение - Лаб</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6467" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6467" data-target="#lecture-6467" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">8</span>
+        <span class="lecture-name">Web Server - Asynchronous Processing - Exercise - Concurrent Users</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6467">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - Asynchronous Processing - Exercise - Concurrent Users</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Web Server - Stress Testing Our Web Server with Many Users</li></ul><p>Дата: 29-ти септември, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/video/18242/video-stream-record-29-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (стрийм запис) - 29 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/video/18243/video-screen-29-september-2017-ivaylo-kenov-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-video-camera"></i>Видео (екран) - 29 Септември 2017 - Ивайло Кенов</a>
+</li>
+
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18280/exercise-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Упражнение - Условия</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6468" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6468" data-target="#lecture-6468" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">9</span>
+        <span class="lecture-name">Web Server - HTTP Protocоl - Exercise - Basic HTML Pages with C#</span>
+            <i class="fa fa-hand-o-left last-lecture"></i>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6469" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6469" data-target="#lecture-6469" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">10</span>
+        <span class="lecture-name">Web Server - State Management</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6468" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6468" data-target="#lecture-6468" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">9</span>
+        <span class="lecture-name">Web Server - HTTP Protocоl - Exercise - Basic HTML Pages with C#</span>
+            <i class="fa fa-hand-o-left last-lecture"></i>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6468">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - HTTP Protocоl - Exercise - Basic HTML Pages with C#</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Parsing Requests and Returning Response. Creating Simple HTML Pages with C#</li></ul><p>Дата: 02-ри октомври, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <ul class="lecture-resources-list top-buffer-lg">
+                    
+
+      
+<li>
+        <a href="/trainings/resources/officedocument/18287/exercise-problem-descriptions-c-sharp-web-development-basics-september-2017" target="_blank"><i class="fa fa fa-file-word-o"></i>Упражнение - Условия</a>
+</li>
+
+                </ul>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6469" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6469" data-target="#lecture-6469" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">10</span>
+        <span class="lecture-name">Web Server - State Management</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6469">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - State Management</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>What are Cookies and How to Use Them? Creating and Processing Cookies in Our Web Server. What are Sessions? Creating Sessions in Our Server.</li></ul><p>Дата: 03-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6470" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6470" data-target="#lecture-6470" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">11</span>
+        <span class="lecture-name">Web Server - State Management - Exercise - Using Cookies</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6471" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6471" data-target="#lecture-6471" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">12</span>
+        <span class="lecture-name">Web Server - Databases - EF Core</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6470" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6470" data-target="#lecture-6470" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">11</span>
+        <span class="lecture-name">Web Server - State Management - Exercise - Using Cookies</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6470">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - State Management - Exercise - Using Cookies</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Using Cookies and Session with Multiple Users. Creating User Processing - Register &amp; Login</li></ul><p>Дата: 05-ти октомври, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6471" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6471" data-target="#lecture-6471" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">12</span>
+        <span class="lecture-name">Web Server - Databases - EF Core</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6471">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - Databases - EF Core</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Persistance Layer Introduction, Using Database for Data Storage. Creating Simple CRUD Application
+</li></ul><p>Дата: 06-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6472" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6472" data-target="#lecture-6472" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">13</span>
+        <span class="lecture-name">Web Server - Databases - EF Core - Exercise - Complex Web Applications</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6473" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6473" data-target="#lecture-6473" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">14</span>
+        <span class="lecture-name">Workshop - Web Application. Advanced CSS - Bootstrap</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6472" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6472" data-target="#lecture-6472" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">13</span>
+        <span class="lecture-name">Web Server - Databases - EF Core - Exercise - Complex Web Applications</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6472">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Web Server - Databases - EF Core - Exercise - Complex Web Applications</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Complex Web Applications. Creating Complex Databases and Executing Queries</li></ul><p>Дата: 09-ти октомври, 18:00- 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6473" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6473" data-target="#lecture-6473" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">14</span>
+        <span class="lecture-name">Workshop - Web Application. Advanced CSS - Bootstrap</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6473">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Workshop - Web Application. Advanced CSS - Bootstrap</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Complex Web Application. Identifying Problems with the Web Server. Using Bootstrap. Creating HTML Tables and Other Data Visualization Elements</li></ul><p>Дата: 10-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6474" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6474" data-target="#lecture-6474" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">15</span>
+        <span class="lecture-name">Workshop - Web Application - Exercise - Data Visualization</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6475" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6475" data-target="#lecture-6475" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">16</span>
+        <span class="lecture-name">Introduction to MVC. Creating Application Server</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6474" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6474" data-target="#lecture-6474" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">15</span>
+        <span class="lecture-name">Workshop - Web Application - Exercise - Data Visualization</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6474">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Workshop - Web Application - Exercise - Data Visualization</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Complex Web Application. Visualizing Data Using Advanced HTML &amp; CSS</li></ul><p>Дата: 12-ти октомври, 18:00 - 22:00</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6475" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6475" data-target="#lecture-6475" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">16</span>
+        <span class="lecture-name">Introduction to MVC. Creating Application Server</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6475">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Introduction to MVC. Creating Application Server</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Getting Familiar with the Model-View-Controller Architectural Design Pattern. Changing Our Web Server to Create Application Server - Decoupling the Web Server from the Application Logic</li></ul><p>Дата: 13-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6476" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6476" data-target="#lecture-6476" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">17</span>
+        <span class="lecture-name">Creating Simple MVC Framework - Exercise</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6477" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6477" data-target="#lecture-6477" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">18</span>
+        <span class="lecture-name">Advanced MVC Framework - IoC, Data Binding, Auto-Mapping</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6476" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6476" data-target="#lecture-6476" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">17</span>
+        <span class="lecture-name">Creating Simple MVC Framework - Exercise</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6476">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Creating Simple MVC Framework - Exercise</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Simple MVC Framework. Creating Request Dispatcher, Routing, Models, Views, Controllers.
+</li></ul><p>Дата: 16-ти октомври, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6477" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6477" data-target="#lecture-6477" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">18</span>
+        <span class="lecture-name">Advanced MVC Framework - IoC, Data Binding, Auto-Mapping</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6477">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Advanced MVC Framework - IoC, Data Binding, Auto-Mapping</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Introducing Dependency Injection to the MVC Framework. Creating Automatic Data Binding. Using Auto-Mappers and Other Additional Components</li></ul><p>Дата: 17-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6478" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6478" data-target="#lecture-6478" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">19</span>
+        <span class="lecture-name">Advanced MVC Framework - Exercise - Extending MVC Framework</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6479" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6479" data-target="#lecture-6479" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">20</span>
+        <span class="lecture-name">Workshop - MVC Application</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6478" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6478" data-target="#lecture-6478" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">19</span>
+        <span class="lecture-name">Advanced MVC Framework - Exercise - Extending MVC Framework</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6478">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Advanced MVC Framework - Exercise - Extending MVC Framework</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Extending the MVC Framework with Additional Functionality - Dependency Injection, Auto Data Binding</li></ul><p>Дата: 19-ти октомври, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6479" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6479" data-target="#lecture-6479" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">20</span>
+        <span class="lecture-name">Workshop - MVC Application</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6479">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Workshop - MVC Application</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Complex MVC Application Using the MVC Framework and Application Server. Using Persistance Layer - EF Core</li></ul><p>Дата: 20-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6480" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6480" data-target="#lecture-6480" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">21</span>
+        <span class="lecture-name">Workshop - MVC Application - Exercise - Complex MVC Application</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6481" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6481" data-target="#lecture-6481" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">22</span>
+        <span class="lecture-name">Workshop - MVC Application - Exercise - Extending the MVC Application</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6480" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6480" data-target="#lecture-6480" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">21</span>
+        <span class="lecture-name">Workshop - MVC Application - Exercise - Complex MVC Application</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6480">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Workshop - MVC Application - Exercise - Complex MVC Application</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Creating Complex MVC Application Using the Course Materials</li></ul><p>Дата: 23-ти октомври, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6481" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6481" data-target="#lecture-6481" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">22</span>
+        <span class="lecture-name">Workshop - MVC Application - Exercise - Extending the MVC Application</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6481">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Workshop - MVC Application - Exercise - Extending the MVC Application</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Extending the MVC Application with More Pages and Database Information</li></ul><p>Дата: 24-ти октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6482" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6482" data-target="#lecture-6482" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">23</span>
+        <span class="lecture-name">Exam Preparation</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6483" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6483" data-target="#lecture-6483" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">24</span>
+        <span class="lecture-name">Exam Preparation</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6482" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6482" data-target="#lecture-6482" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">23</span>
+        <span class="lecture-name">Exam Preparation</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6482">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Exam Preparation</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Exam Preparation solved by the students</li></ul><p>Дата: 26-ти октомври, 18:00 - 22:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6483" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6483" data-target="#lecture-6483" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">24</span>
+        <span class="lecture-name">Exam Preparation</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6483">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Exam Preparation</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Exam Preparation</li></ul><p>Дата: 27-ми октомври, 13:30 - 17:30
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li><li class="lecture col-md-6 col-sm-12 visible-lg visible-md">
+    <a href="#lecture-6484" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6484" data-target="#lecture-6484" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">25</span>
+        <span class="lecture-name">Practical Exam</span>
+    </a>
+</li><li class="lecture col-md-6 col-sm-12 visible-sm visible-xs no-padding">
+    <a href="#lecture-6484" a-expanded="false" class="lecture-link panel-heading collapsed" tabindex="1" data-id="6484" data-target="#lecture-6484" data-toggle="collapse" data-parent="#lectures-list">
+        <span class="lecture-number">25</span>
+        <span class="lecture-name">Practical Exam</span>
+    </a>
+</li>
+
+<li class="col-md-12">
+    <div class="lecture-details panel-collapse bottom-buffer-lg collapse col-md-12" id="lecture-6484">
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Practical Exam</h4>
+            </div>
+                <div class="lecture-paragraph html-raw-wrapper"><ul><li>Practical Exam</li></ul><p>Дата: 29-ти октомври, 09:00 - 15:00
+</p></div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="text-center">
+                <h4 class="section-title">Ресурси от темата</h4>
+            </div>
+                <p>Още няма материали за тази лекция</p>
+        </div>
+
+    </div>
+</li>        </ul>
+    </div>
+</div>
+        
+
+<div id="resource-bug-report-popup">
+<form action="/trainings/resources/reportbug" data-ajax="true" data-ajax-method="POST" data-ajax-success="onBugReportEnd" id="report-bug-form" method="post"><input name="__RequestVerificationToken" type="hidden" value="96Qr0liFFTjf-3tq6_5jwGRYVCit9CIM3NJIIGfHIiVsyCmGQAdqjCCMtR_ymfajQexLF_xAZaksiz9OLpjfar2jJHM1" />        <div id="bug-report-success"></div>
+        <p id="bug-report-disclaimer">
+            *Моля, докладвайте само грешки в материалите към лекцията.
+ За всякакъв друг тип грешки, свързани със системата,
+ използвайте <a href="/contacts">формата за обратна връзка</a>."
+        </p>
+        <div class="editor-label">
+            <div class="editor-label">
+                <label for="ResourceId">Материал</label>
+            </div>
+
+            <div class="editor-field resources-dropdown">
+                <input class="text-box single-line" data-val="true" data-val-number="The field Материал must be a number." data-val-range="Моля, изберете материал." data-val-range-max="2147483647" data-val-range-min="1" data-val-required="Моля, изберете материал." id="ResourceId" name="ResourceId" type="number" value="0" />
+                <div>
+                    <span class="k-invalid-msg" data-for="ResourceId"></span>
+                </div>
+            </div>
+        </div>
+        <div class="editor-label">
+            <div class="editor-label">
+                <label for="Location">Местоположение</label>
+            </div>
+
+            <div class="editor-field">
+                
+
+<input class="form-control" data-val="true" data-val-length="Местоположението на грешката трябва да е между 6 и 300 символа дълго." data-val-length-max="300" data-val-length-min="6" data-val-required="Моля, посочете къде се намира грешката." id="Location" name="Location" placeholder="Местоположение на грешката" type="text" value="" />
+                <div>
+                    <span class="k-invalid-msg" data-for="Location"></span>
+                </div>
+            </div>
+        </div>
+        <div class="editor-label clearfix bottom-buffer">
+            <div id="description-label-container" class="editor-label">
+                <label for="Description">Описание</label>
+            </div>
+
+            <div class="editor-field">
+                
+
+<textarea class="form-control" cols="20" data-val="true" data-val-length="Описанието на грешката трябва да е между 12 и 2000 символа дълго." data-val-length-max="2000" data-val-length-min="12" data-val-required="Моля, дайте описание на грешката." id="Description" name="Description" placeholder="Описание на грешката" rows="10">
+</textarea>
+
+                <div>
+                    <span class="k-invalid-msg" data-for="Description"></span>
+                </div>
+            </div>
+        </div>
+        <div id="resource-bug-report-buttons-container" class="top-buffer text-center">
+            <input type="submit" class="k-button" id="resource-bug-report-ok-button" value="Докладвай" />
+            <input type="button" class="k-button primary-btn primary-blue-btn" id="resource-bug-report-cancel-button" value="Отказ" />
+        </div>
+</form></div>
+
+<script>
+    $(function () {
+        var bugReportPopupWindow = $('#resource-bug-report-popup').kendoWindow({
+            height: 'auto',
+            width: '600px',
+            title: 'Докладване на грешка в материал за лекция',
+            visible: false,
+            modal: true,
+            deactivate: resetFormValues
+        }).data('kendoWindow');
+    });
+
+    function onBugReportEnd(data) {
+        if (data.SuccessMessage) {
+            $('#resource-bug-report-popup').data('kendoWindow').close();
+        }
+    }
+
+    function resetFormValues() {
+        $('#report-bug-form span.k-invalid-msg').hide();
+        document.getElementById('report-bug-form').reset();
+    }
+</script>
+    </section>
+
+
+    <section class="grey-container lecturers-section bottom-buffer-lg">
+        <div class="text-center bottom-buffer-lg">
+            <h3 class="section-title">Преподавател</h3>
+        </div>
+        
+<div class="trainer-wrap">
+    <div class="user-wrap">
+        <div class="cell user-avatar">
+            <img src="/users/profile/showavatar/2db89b03-00da-47cb-a788-2360abda9abd" alt="ivaylo.kenov avatar">
+        </div>
+        <div class="cell">
+            <a class="user-name" href="/users/profile/show/ivaylo.kenov">Ивайло Кенов</a>
+
+                <div class="trainer-description html-raw-wrapper">
+                    <p style="text-align:justify;"><strong>Ивайло</strong> е дългогодишен технологичен трейнър и софтуерен разработчик със C# и JavaScript. Състезател по математика с участия в редица национални олимпиади. Обича да задълбава в трудните и алгоритмичните части на програмирането. Участвал е в изработката и поддръжката на няколко интернет приложения. През свободното си време разработва open-source библиотеки за ASP.NET.</p>
+                </div>
+                            <a href="http://www.linkedin.com/in/kenov" class="primary-btn linkedin">
+                    <i class="fa fa-linkedin"></i> LinkedIn
+                </a>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+
+<script>
+    $(function() {
+        Suls.AnimationHelper.appendMoreOrLessTextButton(
+            150,
+            'course-description',
+            '.html-raw-wrapper',
+            'Още',
+            'Скрий');
+    });
+</script>        <div class="row no-margin-offset text-center">
+            
+
+
+        </div>
+</div>
+
+
+    </div>
+
+    
+
+<footer id="page-footer">
+    <div class="container container-holder">
+        <ul class="row">
+            <li class="col-md-3 col-sm-12 col-xs-12 footer-list-wrapper">
+                <h3 class="list-title text-uppercase">За Software University</h3>
+                <ul class="footer-list">
+                    <li><a href="/about">За нас</a></li>
+                    <li><a href="/curriculum">Учебен план</a></li>
+                    <li><a href="/diplomas-and-certificates">Сертификати</a></li>
+                    <li><a href="/trainers">Преподаватели</a></li>
+                    <li><a href="/plans">Такси за обучение</a></li>
+                    <li><a href="/how-to-apply">Как да кандидатствам</a></li>
+                    <li><a href="/university-partners">Университети партньори</a></li>
+                    <li><a href="/faq">Често задавани въпроси</a></li>
+                    <li><a href="/Files/TermsAndConditions/Terms-and-Conditions-SoftUni-Students-Contract-rev-19.07.2017.pdf">Общи условия</a></li>
+                    <li><a href="/sitemap">Карта на сайта</a></li>
+                </ul>
+            </li>
+
+            <li class="col-md-3 col-sm-12 col-xs-12 footer-list-wrapper">
+                <h3 class="list-title text-uppercase">Всички обучения</h3>
+                <ul class="footer-list">
+                    <li>
+                        <a href="/trainings/courses">Курсове</a>
+                    </li>
+                    <li>
+                        <a href="/trainings/opencourses">Отворени курсове</a>
+                    </li>
+                    <li>
+                        <a href="/trainings/seminars">Семинари</a>
+                    </li>
+                    <li>
+                        <a href="/apply" class="primary-btn base-btn">Кандидатствай</a>
+                    </li>
+                </ul>
+
+                <div class="initatives footer-list-wrapper">
+                    <h3 class="list-title text-uppercase top-buffer-lg">Всички инициативи</h3>
+                    <ul class="footer-list">
+                        <li>
+                            <a href="https://digital.softuni.bg" title="SoftUni Digital">
+                                SoftUni Digital
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://creative.softuni.bg" title="SoftUni Creative">
+                                SoftUni Creative
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://kids.softuni.bg" title="SoftUni Kids">
+                                SoftUni Kids
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://softuni.foundation/" title="SoftUni Foundation">
+                                SoftUni Foundation
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="col-md-3 col-sm-12 col-xs-12 footer-list-wrapper">
+                <h3 class="list-title text-uppercase">Основни партньори</h3>
+                <ul class="footer-list">
+                    <li><a target="_blank" href="http://www.xs-software.com/">XS Software</a></li>
+                    <li><a target="_blank" href="http://smartit.bg/">SmartIT</a></li>
+                    <li><a target="_blank" href="http://www.softwaregroup-bg.com/bg/">Software Group</a></li>
+                    <li><a target="_blank" href="http://www.superhosting.bg/">SuperHosting.BG</a></li>
+                    <li><a target="_blank" href="http://www.indeavr.com/">Indeavr</a></li>
+                    <li><a target="_blank" href="http://www.infragistics.com/">Infragistics</a></li>
+                    <li><a target="_blank" href="http://netpeak.bg/">Netpeak</a></li>
+                    <li><a target="_blank" href="https://www.hpe.com/">Hewlett Packard Enterprise</a></li>
+                </ul>
+            </li>
+
+            <li class="col-md-3 col-sm-12 col-xs-12 footer-list-wrapper">
+                <div class="switch-wrapper vertical">
+                    <input id="lang-switch" type="checkbox" data-role="switch" />
+                    <ul class="lang">
+                        <li class="bg">
+                            <a href="javascript:;" data-lang-id="bg" class="lang-switch-label">Български</a>
+                        </li>
+                        <li class="en">
+                            <a href="javascript:;" data-lang-id="en" class="lang-switch-label">English</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="social">
+                    <li>
+                        <a href="https://www.facebook.com/SoftwareUniversity" target="_blank" class="icon-btn">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/softunibg" target="_blank" class="icon-btn">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/+SoftuniBg" target="_blank" class="icon-btn">
+                            <span class="fa fa-google-plus"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/user/softwareuniversity" target="_blank" class="icon-btn">
+                            <span class="fa fa-youtube-play"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/softuni" target="_blank" class="icon-btn">
+                            <span class="fa fa-github"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/softuni.bg/" target="_blank" class="icon-btn">
+                            <span class="fa fa-instagram"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/feed" target="_blank" class="icon-btn">
+                            <span class="fa fa-rss"></span>
+                        </a>
+                    </li>
+                    <li class="visa top-buffer bottom-buffer">
+                        <img src="/Content/images/payments/verified-by-visa.png" alt="Verified by Visa" height="38" />
+                    </li>
+                    <li class="mastercard top-buffer bottom-buffer">
+                        <a href="http://www.mastercardbusiness.com/mcbiz/index.jsp?template=/orphans&content=securecodepopup">
+                            <img src="/Content/images/payments/sclogo_68x37.gif" alt="MasterCard® SecureCode™" height="38"/>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="all-rights-reserved">
+                    <p>© 2013-2017 - Software University LTD - All Rights Reserved. 94851</p>
+
+                    <p>Software University Learning System 3.0.6481</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+
+    <a href="#" id="scrollToTop" class="button-to-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+<script>
+    $(document).ready(function () {
+        var offset = 220;
+        var duration = 500;
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > offset) {
+                $('#scrollToTop').fadeIn(duration);
+            } else {
+                $('#scrollToTop').fadeOut(duration);
+            }
+        });
+
+        $('#scrollToTop').click(function (event) {
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 800);
+            return false;
+        });
+    });
+</script>
+
+    <script src="/bundles/jqueryval?v=CIt2rO4x_7986HtPQw-2xnys_w8VM4t1A9CbXWW5r-U1"></script>
+<script src="/bundles/bootstrap?v=NzP9D5jO6GVMzY8_4Kfk811W0VrrhYdC5doOJzjbWJc1"></script>
+<script src="/bundles/kendo?v=dLtv1BEQHExPBpsaSlfrmNrbf91NfQgaxIK51A4z14g1"></script>
+<script src="/bundles/global?v=hicaof8djR9ScD2voLNg3LihJgLK4c0lqAv0pWoE0ek1"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            Suls.NotificationsHub.initialize();
+            sulsControls.ReferralsControls.checkForReferral();
+        });
+    </script>
+
+    
+    <script src="/bundles/training-details?v=0MO--wkYdjHYG_CAE_gq-jScaqMrSYzo__dx_9SSWcM1"></script>
+
+
+
+    <script>
+        $(function() {
+            $('.resource-bug-report-button').on('click', function() {
+                var lectureId = $(this).data('lecture-id');
+                Suls.TrainingDetailsEvents.initializeBugReportPopUpWindow(
+                    lectureId,
+                    'Докладване на грешка в материал за лекция',
+                    'Изберете материал');
+            });
+
+            Suls.TrainingDetailsEvents.attachLectureResourcesListEvents();
+            Suls.TrainingDetailsEvents.attachLectureResourcesLinkEvents();
+            Suls.TrainingDetailsEvents.attachLectureResourcesAnchorEvents();
+        });
+    </script>
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://softuni.bg",
+        "logo": "https://softuni.bg/content/images/software-university-logo.png"
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@context" : "http://schema.org",
+        "@type" : "Organization",
+        "name" : "Софтуерен университет ООД",
+        "url" : "https://softuni.bg",
+        "sameAs" : [
+        "https://www.facebook.com/SoftwareUniversity",
+        "https://twitter.com/softunibg",
+        "https://plus.google.com/+SoftuniBg"
+        ]
+        }
+    </script>
+</body>
+</html>

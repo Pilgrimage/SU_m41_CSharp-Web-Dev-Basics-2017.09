@@ -5,13 +5,16 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{767E63BF-A67F-40CC-BD1E-96DF6F8C71C5}"
 	ProjectSection(SolutionItems) = preProject
-		04.WebServer-AsynchronousProgramming-Exercise-ConcurrentUsers.docx = 04.WebServer-AsynchronousProgramming-Exercise-ConcurrentUsers.docx
 		04.WebServer-AsynchronousProgramming-Lab.docx = 04.WebServer-AsynchronousProgramming-Lab.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab01_EvenNumbersThread", "Lab01_EvenNumbersThread\Lab01_EvenNumbersThread.csproj", "{BC406602-1FBB-4FD9-A94E-7D362F0AE7BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab01_EvenNumbersThread", "Lab01_EvenNumbersThread\Lab01_EvenNumbersThread.csproj", "{BC406602-1FBB-4FD9-A94E-7D362F0AE7BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab02_SliceFile", "Lab02_SliceFile\Lab02_SliceFile.csproj", "{D949570E-EEB5-43EF-9385-858F965CC560}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab02_SliceFile", "Lab02_SliceFile\Lab02_SliceFile.csproj", "{D949570E-EEB5-43EF-9385-858F965CC560}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Live", "Live\Live.csproj", "{308A20F8-546E-423D-9CCE-A0210371EC4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab03_SimpleWebServer", "Lab03_SimpleWebServer\Lab03_SimpleWebServer.csproj", "{FD27930E-A0D3-4019-A4C0-F81BE8B2F338}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +30,14 @@ Global
 		{D949570E-EEB5-43EF-9385-858F965CC560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D949570E-EEB5-43EF-9385-858F965CC560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D949570E-EEB5-43EF-9385-858F965CC560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{308A20F8-546E-423D-9CCE-A0210371EC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308A20F8-546E-423D-9CCE-A0210371EC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308A20F8-546E-423D-9CCE-A0210371EC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308A20F8-546E-423D-9CCE-A0210371EC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD27930E-A0D3-4019-A4C0-F81BE8B2F338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD27930E-A0D3-4019-A4C0-F81BE8B2F338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD27930E-A0D3-4019-A4C0-F81BE8B2F338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD27930E-A0D3-4019-A4C0-F81BE8B2F338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
