@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab01_WelcomeToHTML", "Lab01_WelcomeToHTML", "{3355BC33-F43B-4C92-9980-9E5F81A0D16D}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,8 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab03_Paragraphs", "Lab03_P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93B38834-56E1-4D42-A5F2-2AA9CEBAB942}"
 	ProjectSection(SolutionItems) = preProject
-		02.HTML-and-CSS-Exercises.docx = 02.HTML-and-CSS-Exercises.docx
-		02.HTML-and-CSS-Lab.docx = 02.HTML-and-CSS-Lab.docx
+		04.HTML-and-CSS-Lab.docx = 04.HTML-and-CSS-Lab.docx
+		05.HTML-and-CSS-Exercises.docx = 05.HTML-and-CSS-Exercises.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab04_MyTodoList", "Lab04_MyTodoList", "{C7CF0045-5588-4608-A425-E6CB6B1BEFF1}"

@@ -1,29 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{924B7393-729B-4EC9-B773-F50B76DAEE97}"
 	ProjectSection(SolutionItems) = preProject
-		01.IntroToNetCoreAndEFCore-Exercises.docx = 01.IntroToNetCoreAndEFCore-Exercises.docx
-		01.IntroToNetCoreAndEFCore-Lab.docx = 01.IntroToNetCoreAndEFCore-Lab.docx
+		02.IntroToNetCoreAndEFCore-Lab.docx = 02.IntroToNetCoreAndEFCore-Lab.docx
+		03.IntroToNetCoreAndEFCore-Exercises.docx = 03.IntroToNetCoreAndEFCore-Exercises.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab01_SchoolCompetition", "Lab01_SchoolCompetition\Lab01_SchoolCompetition.csproj", "{694C8470-1793-44F5-B908-DF812314238C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab01_SchoolCompetition", "Lab01_SchoolCompetition\Lab01_SchoolCompetition.csproj", "{694C8470-1793-44F5-B908-DF812314238C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab02_Employees", "Lab02_Employees\Lab02_Employees.csproj", "{B7DE3915-BC82-46A5-B34E-89032065419C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab02_Employees", "Lab02_Employees\Lab02_Employees.csproj", "{B7DE3915-BC82-46A5-B34E-89032065419C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab04_ManyToManyRelation", "Lab04_ManyToManyRelation\Lab04_ManyToManyRelation.csproj", "{B7DCD8BA-3253-4206-9DC2-4A0A64C99280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab04_ManyToManyRelation", "Lab04_ManyToManyRelation\Lab04_ManyToManyRelation.csproj", "{B7DCD8BA-3253-4206-9DC2-4A0A64C99280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab05_Shop", "Lab05_Shop\Lab05_Shop.csproj", "{5C6177EA-82F3-40E2-96E7-CA140A187A4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab05_Shop", "Lab05_Shop\Lab05_Shop.csproj", "{5C6177EA-82F3-40E2-96E7-CA140A187A4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p01_StudentSystem", "p01_StudentSystem\p01_StudentSystem.csproj", "{F8DC0287-A322-4AA9-8C9F-5E4A96801D64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p01_StudentSystem", "p01_StudentSystem\p01_StudentSystem.csproj", "{F8DC0287-A322-4AA9-8C9F-5E4A96801D64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p02_SocialNetwork", "p02_SocialNetwork\p02_SocialNetwork.csproj", "{71CBB07F-563B-412B-A909-0DAC6817C836}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p02_SocialNetwork", "p02_SocialNetwork\p02_SocialNetwork.csproj", "{71CBB07F-563B-412B-A909-0DAC6817C836}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p03_FootballBetting", "p03_FootballBetting\p03_FootballBetting.csproj", "{88A7A7AF-2855-4382-A8D1-0BE6184279ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p03_FootballBetting", "p03_FootballBetting\p03_FootballBetting.csproj", "{88A7A7AF-2855-4382-A8D1-0BE6184279ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p04_BankSystem", "p04_BankSystem\p04_BankSystem.csproj", "{E7DF1B5A-90AC-4B5D-B302-1B4D32269181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p04_BankSystem", "p04_BankSystem\p04_BankSystem.csproj", "{E7DF1B5A-90AC-4B5D-B302-1B4D32269181}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
