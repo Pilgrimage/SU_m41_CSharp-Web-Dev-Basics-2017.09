@@ -25,7 +25,7 @@
 
         public IHttpResponse Add(string name, string price)
         {
-            var cake = new Cake
+            Cake cake = new Cake
             {
                 Name = name,
                 Price = decimal.Parse(price)
@@ -41,7 +41,6 @@
         }
 
 
-        
         public IHttpResponse Search(IHttpRequest request)
         {
             const string searchTermKey = "searchTerm";
@@ -57,12 +56,14 @@
 
                 this.ViewData["searchTerm"] = searchTerm;
 
+
                 var savedCakesDivs = this.cakesData
                     .All()
                     .Where(c => c.Name.ToLower().Contains(searchTerm.ToLower()))
-                    .Select(c => $@"<div>{c.Name} - ${c.Price:F2}</div>")
-                    //.Select(c => $@"<div>{c.Name} - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}"">Order</a></div>")
-                    ;
+                    .Select(c =>
+                        //$@"<div>{c.Name} - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}"">Order</a></div>");
+                        $@"<div style=""height: 30px;"" >{c.Name} - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}""><button>Order</a></div>");
+                        //$@"<form style=""height: 30px;"" action=""/shopping/add/{c.Id}?searchTerm={searchTerm}"" method=""get"">{c.Name} - ${c.Price:F2}  <button>Order</button></form>");
 
                 string results = "No cakes found";
 
@@ -80,16 +81,16 @@
 
             this.ViewData["showCart"] = "none";
 
-            //var shoppingCart = request.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
+            ShoppingCart shoppingCart = request.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
 
-            //if (shoppingCart.Orders.Any())
-            //{
-            //    var totalProducts = shoppingCart.Orders.Count;
-            //    var totalProductsText = totalProducts != 1 ? "products" : "product";
+            if (shoppingCart.Orders.Any())
+            {
+                int totalProducts = shoppingCart.Orders.Count;
+                string totalProductsText = totalProducts != 1 ? "products" : "product";
 
-            //    this.ViewData["showCart"] = "block";
-            //    this.ViewData["products"] = $"{totalProducts} {totalProductsText}";
-            //}
+                this.ViewData["showCart"] = "block";
+                this.ViewData["products"] = $"{totalProducts} {totalProductsText}";
+            }
 
             return this.FileViewResponse(@"cakes\search");
         }

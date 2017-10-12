@@ -9,9 +9,11 @@
     <title>By the Cake</title>
 </head>
 <body>
-
-    {{{content}}}
-
+<form style="display: {{{authDisplay}}}" method="post" action="/logout">
+    <input type="submit" value="Logout" />
+</form>
+<br />
+{{{content}}}
     <hr />
     <footer style="text-align: center">
         &copy;All Rights Reserved

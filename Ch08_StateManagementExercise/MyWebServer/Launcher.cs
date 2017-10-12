@@ -20,8 +20,8 @@
         
         public void Run()
         {
-            IApplication app = new MainApplication();
-            //IApplication app = new ByTheCakeApp();
+            //IApplication app = new MainApplication();
+            IApplication app = new ByTheCakeApp();
             //IApplication app = new CalculatorApp();
             //IApplication app = new LoginFormApp();
 

@@ -1,13 +1,15 @@
 ﻿namespace MyWebServer.Server.Handlers
 {
+    using System.Linq;
     using System.Text.RegularExpressions;
     using Contracts;
     using Http.Contracts;
     using Common;
     using Enums;
     using Http.Response;
-    using MyWebServer.Application.Views;
+    using Server.Http;
     using Routing.Contracts;
+    using System;
 
     public class HttpHandler : IRequestHandler
     {
@@ -21,43 +23,59 @@
         }
         
 
-        public IHttpResponse Handle(IHttpContext httpContext)
+        public IHttpResponse Handle(IHttpContext context)
         {
-            HttpRequestMethod requestMethod = httpContext.Request.Method;
-            string requestPath = httpContext.Request.Path;
-            var registeredRoutes = this.serverRouteConfig.Routes[requestMethod];
-
-            foreach (var registeredRoute in registeredRoutes)
+            try
             {
-                // will return   ^/users/(?<name>[a-z]+)$
-                string routePattern = registeredRoute.Key;
-                IRoutingContext routingContext = registeredRoute.Value;
+                // Check if user is authenticated
+                string[] anonymousPaths = new[] { "/login", "/register" };
 
-                Regex routeRegex = new Regex(routePattern);
-                Match match = routeRegex.Match(requestPath);
-
-                if (!match.Success)
+                if (context.Request.Path == null || 
+                    (!anonymousPaths.Contains(context.Request.Path) &&
+                     !context.Request.Session.Contains(SessionStore.CurrentUserKey)))
                 {
-                    continue;
+                    return new RedirectResponse(anonymousPaths.First());
                 }
 
-                //  ^/users/(?<name>[a-z]+)$   ->  name
-                var parameters = routingContext.Parameters;
+                HttpRequestMethod requestMethod = context.Request.Method;
+                string requestPath = context.Request.Path;
+                var registeredRoutes = this.serverRouteConfig.Routes[requestMethod];
 
-                // extract value for <name>
-                foreach (string parameter in parameters)
+                foreach (var registeredRoute in registeredRoutes)
                 {
-                    // if we have named group in the regex
-                    string parameterValue = match.Groups[parameter].Value;
-                    httpContext.Request.AddUrlParameter(parameter, parameterValue);
-                }
+                    // will return   ^/users/(?<name>[a-z]+)$
+                    string routePattern = registeredRoute.Key;
+                    IRoutingContext routingContext = registeredRoute.Value;
 
-                return routingContext.Handler.Handle(httpContext);
+                    Regex routeRegex = new Regex(routePattern);
+                    Match match = routeRegex.Match(requestPath);
+
+                    if (!match.Success)
+                    {
+                        continue;
+                    }
+
+                    //  ^/users/(?<name>[a-z]+)$   ->  name
+                    var parameters = routingContext.Parameters;
+
+                    // extract value for <name>
+                    foreach (string parameter in parameters)
+                    {
+                        // if we have named group in the regex
+                        string parameterValue = match.Groups[parameter].Value;
+                        context.Request.AddUrlParameter(parameter, parameterValue);
+                    }
+
+                    return routingContext.Handler.Handle(context);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new InternalServerErrorResponse(ex);
             }
 
-
-            return new ViewResponse(HttpStatusCode.NotFound, new PageNotFoundView());
-            //return new NotFoundResponse();
+            return new NotFoundResponse();
         }
+
     }
 }

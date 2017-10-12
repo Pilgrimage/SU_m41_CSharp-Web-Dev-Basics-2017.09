@@ -12,6 +12,6 @@
 
         void Clear();
 
-        //bool Contains(string key);
+        bool Contains(string key);
     }
 }
