@@ -1,5 +1,6 @@
 ﻿namespace MyWebServer
 {
+    using System.Net.Mime;
     using Application;
     using ByTheCakeApplication;
     using CalculatorApplication;
@@ -12,7 +13,7 @@
     public class Launcher
     {
         private WebServer webServer; 
-
+        
         public static void Main()
         {
             new Launcher().Run();
@@ -21,11 +22,13 @@
         public void Run()
         {
             //IApplication app = new MainApplication();
-            IApplication app = new ByTheCakeApp();
+            var app = new ByTheCakeApp();
             //IApplication app = new CalculatorApp();
             //IApplication app = new LoginFormApp();
 
-            IAppRouteConfig appRouteConfig = new AppRouteConfig();
+            app.InitializeDatabase();
+
+            var appRouteConfig = new AppRouteConfig();
             app.Start(appRouteConfig);
 
             this.webServer = new WebServer(8230, appRouteConfig);

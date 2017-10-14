@@ -28,14 +28,23 @@
             try
             {
                 // Check if user is authenticated
+                //string[] anonymousPaths = new[] { "/login", "/register" };
+
+                //if (context.Request.Path == null || 
+                //    (!anonymousPaths.Contains(context.Request.Path) &&
+                //     !context.Request.Session.Contains(SessionStore.CurrentUserKey)))
+                //{
+                //    return new RedirectResponse(anonymousPaths.First());
+                //}
+
                 string[] anonymousPaths = new[] { "/login", "/register" };
 
-                if (context.Request.Path == null || 
-                    (!anonymousPaths.Contains(context.Request.Path) &&
-                     !context.Request.Session.Contains(SessionStore.CurrentUserKey)))
+                if (!anonymousPaths.Contains(context.Request.Path) &&
+                    (context.Request.Session == null || !context.Request.Session.Contains(SessionStore.CurrentUserKey)))
                 {
                     return new RedirectResponse(anonymousPaths.First());
                 }
+
 
                 HttpRequestMethod requestMethod = context.Request.Method;
                 string requestPath = context.Request.Path;

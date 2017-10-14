@@ -1,53 +1,116 @@
 ﻿namespace MyWebServer.ByTheCakeApplication.Controllers
 {
+    using System;
     using ByTheCakeApplication.Infrastructure;
-    using ByTheCakeApplication.Models;
+    using ByTheCakeApplication.ViewModels;
+    using ByTheCakeApplication.Services;
+    using ByTheCakeApplication.ViewModels.Account;
     using Server.Http;
     using Server.Http.Response;
     using Server.Http.Contracts;
 
     public class AccountController : Controller
     {
-        public IHttpResponse Login()
-        {
-            this.ViewData["showError"] = "none";
-            this.ViewData["authDisplay"] = "none";
 
-            return this.FileViewResponse(@"Account\login");
+        private const string RegisterView = @"account\register";
+        private const string LoginView = @"account\login";
+
+        private readonly IUserService users;
+
+        public AccountController()
+        {
+            this.users = new UserService();
         }
 
-        public IHttpResponse Login(IHttpRequest request)
+        public IHttpResponse Register()
         {
-            const string formNameKey = "name";
-            const string formPasswordKey = "password";
+            this.SetDefaultViewData();
+            return this.FileViewResponse(RegisterView);
+        }
 
-            if (!request.FormData.ContainsKey(formNameKey) ||
-                !request.FormData.ContainsKey(formPasswordKey))
+        public IHttpResponse Register( IHttpRequest request, RegisterUserViewModel model)
+        {
+            this.SetDefaultViewData();
+
+            if (model.Username.Length < 3
+                || model.Password.Length < 3
+                || model.ConfirmPassword != model.Password)
             {
-                this.ViewData["error"] = "You have missing or empty fields";
-                this.ViewData["showError"] = "block";
+                this.AddError("Invalid user details");
 
-                return this.FileViewResponse(@"account\login");
-                //return new BadRequestResponse();
+                return this.FileViewResponse(RegisterView);
             }
 
-            string name = request.FormData[formNameKey];
-            string password = request.FormData[formPasswordKey];
+            bool success = this.users.Create(model.Username, model.Password);
 
-            if (string.IsNullOrWhiteSpace(name) || 
-                string.IsNullOrWhiteSpace(password))
+            if (success)
             {
-                this.ViewData["error"] = "You have empty fields";
-                this.ViewData["showError"] = "block";
+                this.LoginUser(request, model.Username);
 
-                return this.FileViewResponse(@"account\login");
+                return new RedirectResponse("/");
+            }
+            else
+            {
+                this.AddError("This username is taken");
+
+                return this.FileViewResponse(RegisterView);
+            }
+        }
+
+        public IHttpResponse Login()
+        {
+            this.SetDefaultViewData();
+            return this.FileViewResponse(LoginView);
+        }
+
+        public IHttpResponse Login(IHttpRequest request, LoginViewModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.Username)
+                || string.IsNullOrWhiteSpace(model.Password))
+            {
+                this.AddError("You have empty fields");
+
+                return this.FileViewResponse(LoginView);
             }
 
-            // we save only username of the user
-            request.Session.Add(SessionStore.CurrentUserKey, name);
-            request.Session.Add(ShoppingCart.SessionKey, new ShoppingCart());
+            bool success = this.users.Find(model.Username, model.Password);
 
-            return new RedirectResponse("/");
+            if (success)
+            {
+                this.LoginUser(request, model.Username);
+
+                return new RedirectResponse("/");
+            }
+            else
+            {
+                this.AddError("Invalid user details");
+
+                return this.FileViewResponse(LoginView);
+            }
+        }
+
+
+        public IHttpResponse Profile(IHttpRequest request)
+        {
+            if (!request.Session.Contains(SessionStore.CurrentUserKey))
+            {
+                throw new InvalidOperationException("There is no logged in user.");
+            }
+
+            string username = request.Session.Get<string>(SessionStore.CurrentUserKey);
+
+            ProfileViewModel profile = this.users.Profile(username);
+
+            if (profile == null)
+            {
+                throw new InvalidOperationException($"The user {username} could not be found in the database.");
+            }
+
+            this.ViewData["username"] = profile.Username;
+            this.ViewData["registrationDate"] = profile.RegistrationDate.ToShortDateString();
+            this.ViewData["totalOrders"] = profile.TotalOrders.ToString();
+
+            return this.FileViewResponse(@"account\profile");
         }
 
         public IHttpResponse Logout(IHttpRequest request)
@@ -56,6 +119,18 @@
 
             return new RedirectResponse("/login");
         }
+
+        private void SetDefaultViewData() => this.ViewData["authDisplay"] = "none";
+
+
+        private void LoginUser(IHttpRequest request, string username)
+        {
+            request.Session.Add(SessionStore.CurrentUserKey, username);
+            request.Session.Add(ShoppingCart.SessionKey, new ShoppingCart());
+        }
+
+
+
 
     }
 }

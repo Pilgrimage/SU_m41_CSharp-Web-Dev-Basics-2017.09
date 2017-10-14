@@ -18,7 +18,8 @@
         {
             this.ViewData = new Dictionary<string, string>
             {
-                ["authDisplay"] = "block"
+                ["authDisplay"] = "block",
+                ["showError"] = "none"
             };
         }
 
@@ -38,6 +39,13 @@
             }
 
             return new ViewResponse(HttpStatusCode.OK, new FileView(result));
+        }
+
+
+        protected void AddError(string errorMessage)
+        {
+            this.ViewData["showError"] = "block";
+            this.ViewData["error"] = errorMessage;
         }
 
 
