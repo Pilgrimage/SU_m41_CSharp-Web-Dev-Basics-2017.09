@@ -31,6 +31,7 @@
             }
         }
 
+
         public bool Find(string username, string password)
         {
             using (var db = new ByTheCakeDbContext())
@@ -40,6 +41,7 @@
                     .Any(u => u.Username == username && u.Password == password);
             }
         }
+
 
         public ProfileViewModel Profile(string username)
         {
@@ -57,6 +59,7 @@
                     .FirstOrDefault();
             }
         }
+
 
         public int? GetUserId(string username)
         {

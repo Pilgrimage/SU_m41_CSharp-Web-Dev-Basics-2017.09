@@ -1,11 +1,13 @@
 ﻿namespace MyWebServer.ByTheCakeApplication.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using ByTheCakeApplication.Services;
     using ByTheCakeApplication.ViewModels;
     using ByTheCakeApplication.ViewModels.Products;
     using ByTheCakeApplication.Infrastructure;
+    using ByTheCakeApplication.Data.Models;
     using Server.Http.Contracts;
     using Server.Http.Response;
 
@@ -72,9 +74,13 @@
             }
             else
             {
-                var allProducts = result
-                    .Select(c => $@"<div><a href=""/cakes/{c.Id}"">{c.Name}</a> - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}"">Order</a></div>");
+                //var allProducts = result
+                //    .Select(c => $@"<div><a href=""/cakes/{c.Id}"">{c.Name}</a> - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}"">Order</a></div>");
 
+                var allProducts = result
+                    .Select(c => $@"<div><a href=""cakeDetails/{c.Id}"">{c.Name}</a> - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}""><button>Order</button></a></div>")
+                    .ToList();
+                
                 string allProductsAsString = string.Join(Environment.NewLine, allProducts);
 
                 this.ViewData["results"] = allProductsAsString;

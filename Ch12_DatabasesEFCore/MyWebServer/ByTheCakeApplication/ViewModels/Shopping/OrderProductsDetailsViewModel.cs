@@ -1,6 +1,6 @@
-﻿namespace MyWebServer.ByTheCakeApplication.ViewModels
+﻿namespace MyWebServer.ByTheCakeApplication.ViewModels.Shopping
 {
-    public class Cake
+    public class OrderProductsDetailsViewModel
     {
         public int Id { get; set; }
 

@@ -5,6 +5,7 @@
     using ByTheCakeApplication.ViewModels;
     using ByTheCakeApplication.Infrastructure;
     using ByTheCakeApplication.Services;
+    using MyWebServer.ByTheCakeApplication.ViewModels.Shopping;
     using Server.Http;
     using Server.Http.Contracts;
     using Server.Http.Response;
@@ -24,19 +25,19 @@
 
         public IHttpResponse AddToCart(IHttpRequest req)
         {
-            var id = int.Parse(req.UrlParameters["id"]);
+            int id = int.Parse(req.UrlParameters["id"]);
 
-            var productExists = this.products.Exists(id);
+            bool productExists = this.products.Exists(id);
 
             if (!productExists)
             {
                 return new NotFoundResponse();
             }
 
-            var shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
+            ShoppingCart shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
             shoppingCart.ProductIds.Add(id);
 
-            var redirectUrl = "/search";
+            string redirectUrl = "/search";
 
             const string searchTermKey = "searchTerm";
 
@@ -48,9 +49,10 @@
             return new RedirectResponse(redirectUrl);
         }
 
+
         public IHttpResponse ShowCart(IHttpRequest req)
         {
-            var shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
+            ShoppingCart shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
 
             if (!shoppingCart.ProductIds.Any())
             {
@@ -65,7 +67,7 @@
                 var items = productsInCart
                     .Select(pr => $"<div>{pr.Name} - ${pr.Price:F2}</div><br />");
 
-                var totalPrice = productsInCart
+                decimal totalPrice = productsInCart
                     .Sum(pr => pr.Price);
 
                 this.ViewData["cartItems"] = string.Join(string.Empty, items);
@@ -75,10 +77,11 @@
             return this.FileViewResponse(@"shopping\cart");
         }
 
+
         public IHttpResponse FinishOrder(IHttpRequest req)
         {
-            var username = req.Session.Get<string>(SessionStore.CurrentUserKey);
-            var shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
+            string username = req.Session.Get<string>(SessionStore.CurrentUserKey);
+            ShoppingCart shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
 
             var userId = this.users.GetUserId(username);
             if (userId == null)
@@ -99,13 +102,61 @@
             return this.FileViewResponse(@"shopping\finish-order");
         }
 
+        
 
-
-
-        public IHttpResponse Orders(IHttpRequest request)
+        public IHttpResponse GetOrdersDetails(IHttpRequest request)
         {
+            string username = request.Session.Get<string>(SessionStore.CurrentUserKey);
+
+            var userId = this.users.GetUserId(username);
+            if (userId == null)
+            {
+                throw new InvalidOperationException($"User {username} does not exist");
+            }
+
+            var ordersDetails = this.shopping.GetOrders(userId.Value);
+            if (!ordersDetails.Any())
+            {
+                return new RedirectResponse("/");
+            }
+
+            // Generate table with orders
+            var ordersDetailsToHtml = ordersDetails
+                .OrderBy(o => o.Id)
+                .Select(o => $@"<tr><td><a href=""/order/{o.Id}"">{o.Id}</a></td><td>{o.CreatedOn.ToShortDateString()}</td><td>${o.Sum:F2}</td></tr>");
+
+            string resultToHtml = string.Join(Environment.NewLine, ordersDetailsToHtml);
+
+            this.ViewData["contentTable"] = resultToHtml;
+
             return this.FileViewResponse(@"shopping\orders");
         }
+
+
+
+        public IHttpResponse GetOrderDetailsById(int orderId)
+        {
+            OrderDetailsByIdViewModel order = this.shopping.Find(orderId);
+
+            if (order == null)
+            {
+                return new NotFoundResponse();
+            }
+
+            var allProductsbyOrder = order.Products;
+
+            // Generate selected order details
+            var productsToHtml = allProductsbyOrder
+                .Select(p => $@"<tr><td><a href=""/cakes/{p.Id}"">{p.Name}</a></td><td>{p.Price:F2}</td></tr>");
+
+            string resultForHtml = string.Join(Environment.NewLine, productsToHtml);
+
+            this.ViewData["orderId"] = order.Id.ToString();
+            this.ViewData["contentTable"] = resultForHtml;
+            this.ViewData["createdDate"] = order.CreatedOn.ToShortDateString();
+            return this.FileViewResponse(@"shopping/order-details");
+        }
+
 
     }
 }
