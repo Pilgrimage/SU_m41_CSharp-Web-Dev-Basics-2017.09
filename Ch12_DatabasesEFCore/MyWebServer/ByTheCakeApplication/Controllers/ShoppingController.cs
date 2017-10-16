@@ -35,7 +35,12 @@
             }
 
             ShoppingCart shoppingCart = req.Session.Get<ShoppingCart>(ShoppingCart.SessionKey);
-            shoppingCart.ProductIds.Add(id);
+
+            // Prevent adding cake more than one time, because when finalizing the query - BOOM!
+            if (!shoppingCart.ProductIds.Contains(id))
+            {
+                shoppingCart.ProductIds.Add(id);
+            }
 
             string redirectUrl = "/search";
 

@@ -78,7 +78,7 @@
                 //    .Select(c => $@"<div><a href=""/cakes/{c.Id}"">{c.Name}</a> - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}"">Order</a></div>");
 
                 var allProducts = result
-                    .Select(c => $@"<div><a href=""cakeDetails/{c.Id}"">{c.Name}</a> - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}""><button>Order</button></a></div>")
+                    .Select(c => $@"<div><a href=""cakes/{c.Id}"">{c.Name}</a> - ${c.Price:F2} <a href=""/shopping/add/{c.Id}?searchTerm={searchTerm}""><button>Order</button></a></div>")
                     .ToList();
                 
                 string allProductsAsString = string.Join(Environment.NewLine, allProducts);
