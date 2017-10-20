@@ -2,10 +2,10 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using GameStoreApplication.Common;
-    using GameStoreApplication.Utilities;
+    using MyWebServer.GameStoreApplication.Common;
+    using MyWebServer.GameStoreApplication.Utilities;
 
-    public class AdminAddGameViewModel
+    public class AdminEditGameViewModel
     {
         [Required]
         [MinLength(ValidationConstants.Game.TitleMinLength,
@@ -40,5 +40,6 @@
         [Required]
         public DateTime ReleaseDate { get; set; }
 
+        public int Id { get; set; }
     }
 }

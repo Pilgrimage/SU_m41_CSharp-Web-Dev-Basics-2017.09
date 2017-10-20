@@ -17,5 +17,12 @@
 
         IEnumerable<AdminListGameViewModel> All();
 
+        IEnumerable<GameViewModel> AllGamesFullInfo();
+
+        AdminEditGameViewModel GetGameById(int id);
+
+        bool Edit(AdminEditGameViewModel editedGame);
+
+        bool Delete(int id);
     }
 }

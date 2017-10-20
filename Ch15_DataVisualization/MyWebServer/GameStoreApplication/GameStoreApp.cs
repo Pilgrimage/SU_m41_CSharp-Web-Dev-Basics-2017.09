@@ -31,6 +31,13 @@
             appRouteConfig
                 .Get("/", request => new HomeController(request).Index());
 
+            appRouteConfig
+                .Get("/home/index", request => new HomeController(request).Index());
+
+            appRouteConfig
+                .Get("/games/info/{(?<id>[0-9]+)}", request => new HomeController(request).Details());
+
+
             // ACCOUNT Controller
 
             appRouteConfig
@@ -84,11 +91,38 @@
                             Price = decimal.Parse(request.FormData["price"]),
                             Size = double.Parse(request.FormData["size"]),
                             VideoId = request.FormData["video-id"],
-                            ReleaseDate = DateTime.ParseExact(
-                                request.FormData["release-date"],
-                                "yyyy-MM-dd",
-                                CultureInfo.InvariantCulture)
+                            ReleaseDate = DateTime.ParseExact(request.FormData["release-date"], "yyyy-MM-dd", CultureInfo.InvariantCulture)
                         }));
+
+
+            appRouteConfig
+                .Get("/admin/games/edit/{(?<id>[0-9]+)}",
+                    request => new AdminController(request).Edit(int.Parse(request.UrlParameters["id"])));
+
+            appRouteConfig
+                .Post("/admin/games/edit/{(?<id>[0-9]+)}",
+                    request => new AdminController(request).Edit(
+                        new AdminEditGameViewModel
+                        {
+                            Id = int.Parse(request.UrlParameters["id"]),
+                            Title = request.FormData["title"],
+                            Description = request.FormData["description"],
+                            Image = request.FormData["thumbnail"],
+                            Price = decimal.Parse(request.FormData["price"]),
+                            Size = double.Parse(request.FormData["size"]),
+                            VideoId = request.FormData["video-id"],
+                            ReleaseDate = DateTime.ParseExact(request.FormData["release-date"], "yyyy-MM-dd", CultureInfo.InvariantCulture)
+                        }));
+
+
+            appRouteConfig
+                .Get("/admin/games/delete/{(?<id>[0-9]+)}",
+                    request => new AdminController(request).DeleteGet(int.Parse(request.UrlParameters["id"])));
+
+            appRouteConfig
+                .Post("/admin/games/delete/{(?<id>[0-9]+)}",
+                    request => new AdminController(request).Delete(int.Parse(request.UrlParameters["id"])));
+
 
             appRouteConfig
                 .Get("/admin/games/list",
