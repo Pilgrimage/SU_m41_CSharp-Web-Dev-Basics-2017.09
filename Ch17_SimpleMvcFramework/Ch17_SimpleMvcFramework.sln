@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE1E7E22-9C04-4A58-83CE-C6C392057F22}"
+	ProjectSection(SolutionItems) = preProject
+		17.WebDevBasics-Introduction-To-MVC-Lab_v2.docx = 17.WebDevBasics-Introduction-To-MVC-Lab_v2.docx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMvc.Framework", "SimpleMvc.Framework\SimpleMvc.Framework.csproj", "{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{FCD5D5C6-9664-49ED-B765-33223BF628EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0042F17A-894E-41C8-8EDA-092E368A71E9}
+	EndGlobalSection
+EndGlobal

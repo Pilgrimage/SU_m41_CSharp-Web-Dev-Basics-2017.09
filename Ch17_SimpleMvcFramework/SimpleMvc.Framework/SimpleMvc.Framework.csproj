@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebServer\WebServer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Attributes\Methods\" />
+    <Folder Include="Contracts\Generic\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Routers\" />
+    <Folder Include="ViewEngine\Generic\" />
+  </ItemGroup>
+
+</Project>
