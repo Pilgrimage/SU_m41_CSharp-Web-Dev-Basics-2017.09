@@ -8,9 +8,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		17.WebDevBasics-Introduction-To-MVC-Lab_v2.docx = 17.WebDevBasics-Introduction-To-MVC-Lab_v2.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMvc.Framework", "SimpleMvc.Framework\SimpleMvc.Framework.csproj", "{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleMvc.Framework", "SimpleMvc.Framework\SimpleMvc.Framework.csproj", "{EBABBCA3-91F4-43F0-9D6F-1D3DFE72FB42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{FCD5D5C6-9664-49ED-B765-33223BF628EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebServer", "WebServer\WebServer.csproj", "{FCD5D5C6-9664-49ED-B765-33223BF628EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleMvc.App", "SimpleMvc.App\SimpleMvc.App.csproj", "{F3389BF0-FAF3-4D11-A2E6-C2C467502589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMvc.Data", "SimpleMvc.Data\SimpleMvc.Data.csproj", "{D4F7E451-3CCF-4B47-9D8A-5B7363BFDEBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMvc.Domain", "SimpleMvc.Domain\SimpleMvc.Domain.csproj", "{A21BD6E0-D50E-475C-B904-8CCC98A6C943}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +32,18 @@ Global
 		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCD5D5C6-9664-49ED-B765-33223BF628EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3389BF0-FAF3-4D11-A2E6-C2C467502589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3389BF0-FAF3-4D11-A2E6-C2C467502589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3389BF0-FAF3-4D11-A2E6-C2C467502589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3389BF0-FAF3-4D11-A2E6-C2C467502589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F7E451-3CCF-4B47-9D8A-5B7363BFDEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F7E451-3CCF-4B47-9D8A-5B7363BFDEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F7E451-3CCF-4B47-9D8A-5B7363BFDEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F7E451-3CCF-4B47-9D8A-5B7363BFDEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21BD6E0-D50E-475C-B904-8CCC98A6C943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21BD6E0-D50E-475C-B904-8CCC98A6C943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21BD6E0-D50E-475C-B904-8CCC98A6C943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21BD6E0-D50E-475C-B904-8CCC98A6C943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
