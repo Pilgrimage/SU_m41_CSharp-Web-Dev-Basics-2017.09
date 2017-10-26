@@ -9,6 +9,5 @@
         public int OwnerId { get; set; }
 
         public IEnumerable<NoteViewModel> Notes { get; set; }
-
     }
 }

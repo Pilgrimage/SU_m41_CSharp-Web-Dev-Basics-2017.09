@@ -7,14 +7,14 @@
     {
         public ActionResult(string viewFullQualifiedName, TModel model)
         {
-            this.Action = (IRenderable<TModel>)Activator.CreateInstance(Type.GetType(viewFullQualifiedName));
+            //this.Action = (IRenderable<TModel>)Activator.CreateInstance(Type.GetType(viewFullQualifiedName));
 
             //// prefered
-            //this.Action = Activator.CreateInstance(Type.GetType(viewFullQualifiedName)) as IRenderable<TModel>;
-            //if (this.Action == null)
-            //{
-            //    throw new InvalidOperationException("The given view does not implement IRenderable<TModel>.");
-            //}
+            this.Action = Activator.CreateInstance(Type.GetType(viewFullQualifiedName)) as IRenderable<TModel>;
+            if (this.Action == null)
+            {
+                throw new InvalidOperationException("The given view does not implement IRenderable<TModel>.");
+            }
 
             // set the Model of the Action
             this.Action.Model = model;

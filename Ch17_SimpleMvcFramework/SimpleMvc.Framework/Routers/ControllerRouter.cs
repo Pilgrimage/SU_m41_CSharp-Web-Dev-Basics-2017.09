@@ -118,6 +118,7 @@
 
         private object GetControllerInstance()
         {
+            // commented, because he remembers an instance of another controller
             //if (this.controllerInstance != null)
             //{
             //    return this.controllerInstance;
@@ -159,6 +160,7 @@
                 if (parameter.ParameterType.IsPrimitive || parameter.ParameterType == typeof(string))
                 {
                     // PRIMITIVE TYPE
+
                     // take the Name of parameter
                     string getParameterValue = string.Empty;
                     //var getParameterValue = this.getParameters[parameter.Name];

@@ -28,7 +28,7 @@
             {
                 if (db.Users.Any(u => u.Username == model.Username))
                 {
-                    throw new BadRequestException("Username is taken.");
+                    return this.Register();
                 }
 
                 User user = new User

@@ -10,16 +10,14 @@
         {
             RegisterAssemblyName();
 
-            server.Run();
-
-            //try
-            //{
-            //    server.Run();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
+            try
+            {
+                server.Run();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void RegisterAssemblyName()
